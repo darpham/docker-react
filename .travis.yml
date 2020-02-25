@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t darpham/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run darpham/docker-react npm run test -- --coverage
